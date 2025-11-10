@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Generator - Create Your Stunning Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-page" id="landingPage">
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-image"></div>
+                <h1>Take the leap like millions before you</h1>
+                <p class="subtitle">Build your stunning portfolio in minutes</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="startApp()">Get Started</button>
+                    <button class="btn btn-secondary" onclick="scrollToExamples()">View Examples</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="section-header">
+                <h2>Everything you need to shine</h2>
+                <p>Professional portfolio tools at your fingertips</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>15+ Templates</h3>
+                    <p>Choose from professionally designed templates across 10+ categories</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Create your portfolio in minutes with our intuitive builder</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Fully Responsive</h3>
+                    <p>Looks perfect on every device, from mobile to desktop</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Export Ready</h3>
+                    <p>Download as HTML, PDF, or complete ZIP package</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="section-header">
+                <h2>Loved by creators worldwide</h2>
+                <p>Join thousands of satisfied users</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>CEO at TechStart</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Outstanding work! This portfolio truly stands out. The templates are modern and the customization options are endless."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Michael Chen</h4>
+                            <p>Creative Director</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Professional and visually stunning. Highly recommended! I landed my dream job thanks to my new portfolio."</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar"></div>
+                        <div class="testimonial-info">
+                            <h4>Emma Williams</h4>
+                            <p>Entrepreneur</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Best decision to use this platform. Amazing results! My clients are impressed every time they visit my site."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10,000+</h3>
+                    <p>Portfolios Created</p>
+                </div>
+                <div class="stat-item">
+                    <h3>99%</h3>
+                    <p>User Satisfaction</p>
+                </div>
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Countries</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main Application -->
+    <div class="main-app" id="mainApp">
+        <header class="app-header">
+            <div class="app-logo">Portfolio Builder</div>
+            <button class="btn btn-outline" onclick="backToLanding()">← Back to Home</button>
+        </header>
+
+        <nav class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('templates')">Templates</button>
+            <button class="tab-btn" onclick="switchTab('personalInfo')">Personal Info</button>
+            <button class="tab-btn" onclick="switchTab('sections')">Sections</button>
+            <button class="tab-btn" onclick="switchTab('design')">Design</button>
+            <button class="tab-btn" onclick="switchTab('preview')">Preview</button>
+            <button class="tab-btn" onclick="switchTab('export')">Export</button>
+        </nav>
+
+        <!-- Templates Tab -->
+        <div class="tab-content active" id="templatesTab">
+            <h2 style="margin-bottom: var(--space-24);">Choose Your Template</h2>
+            <div class="template-filters">
+                <select class="filter-select" id="categoryFilter" onchange="filterTemplates()">
+                    <option value="all">All Categories</option>
+                    <option value="Tech/Developer">Tech/Developer</option>
+                    <option value="Creative Professional">Creative Professional</option>
+                    <option value="Business Professional">Business Professional</option>
+                    <option value="Freelancer">Freelancer</option>
+                    <option value="Designer">Designer</option>
+                    <option value="Content Creator">Content Creator</option>
+                    <option value="Startup/Founder">Startup/Founder</option>
+                    <option value="Service-Based">Service-Based</option>
+                    <option value="Photography">Photography</option>
+                    <option value="Artistic">Artistic</option>
+                </select>
+            </div>
+            <div class="templates-grid" id="templatesGrid"></div>
+        </div>
+
+        <!-- Personal Info Tab -->
+        <div class="tab-content" id="personalInfoTab">
+            <div class="form-section">
+                <h2 style="margin-bottom: var(--space-32);">Your Information</h2>
+                
+                <div class="profile-upload" id="profileUploadArea">
+                    <div class="profile-preview" id="profilePreview">👤</div>
+                    <div class="upload-info">
+                        <h3>Profile Image</h3>
+                        <p>Click to upload or drag and drop</p>
+                        <button class="btn btn-outline" id="uploadButton">Upload Image</button>
+                    </div>
+                </div>
+
+                <div class="form-grid" style="margin-top: var(--space-32);">
+                    <div class="form-group">
+                        <label class="form-label">Full Name <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="fullName" placeholder="John Doe" oninput="updatePreviewData()">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Professional Title <span class="required">*</span></label>
+                        <input type="text" class="form-input" id="professionalTitle" placeholder="Creative Designer" oninput="updatePreviewData()">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Bio / Tagline <span class="required">*</span></label>
+                    <textarea class="form-input" id="bio" placeholder="Tell us about yourself and what makes you unique..." oninput="updatePreviewData()"></textarea>
+                    <small style="color: var(--color-text-secondary);">Tip: Highlight your unique value proposition and what sets you apart</small>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Email <span class="required">*</span></label>
+                        <input type="email" class="form-input" id="email" placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone</label>
+                        <input type="tel" class="form-input" id="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" class="form-input" id="location" placeholder="San Francisco, CA">
+                </div>
+
+                <h3 style="margin: var(--space-32) 0 var(--space-16) 0;">Social Links</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">LinkedIn</label>
+                        <input type="url" class="form-input" id="linkedin" placeholder="https://linkedin.com/in/username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">GitHub</label>
+                        <input type="url" class="form-input" id="github" placeholder="https://github.com/username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Twitter</label>
+                        <input type="url" class="form-input" id="twitter" placeholder="https://twitter.com/username">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Instagram</label>
+                        <input type="url" class="form-input" id="instagram" placeholder="https://instagram.com/username">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections Tab -->
+        <div class="tab-content" id="sectionsTab">
+            <h2 style="margin-bottom: var(--space-24);">Manage Your Sections</h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: var(--space-32);">Toggle sections on/off and drag to reorder them</p>
+            <div class="sections-list" id="sectionsList"></div>
+            <button class="btn btn-outline" onclick="addCustomSection()" style="margin-top: var(--space-24);">+ Add Custom Section</button>
+        </div>
+
+        <!-- Design Tab -->
+        <div class="tab-content" id="designTab">
+            <h2 style="margin-bottom: var(--space-32);">Customize Your Design</h2>
+            <div class="design-panel">
+                <div>
+                    <div class="design-section">
+                        <h3>Color Schemes</h3>
+                        <div class="color-schemes-grid" id="colorSchemesGrid"></div>
+                    </div>
+
+                    <div class="design-section" style="margin-top: var(--space-24);">
+                        <h3>Custom Colors</h3>
+                        <div class="color-picker-group">
+                            <div class="color-picker-item">
+                                <label class="form-label">Primary</label>
+                                <input type="color" class="color-picker" id="primaryColor" value="#1a1a1a" onchange="updateCustomColors()">
+                            </div>
+                            <div class="color-picker-item">
+                                <label class="form-label">Secondary</label>
+                                <input type="color" class="color-picker" id="secondaryColor" value="#ffffff" onchange="updateCustomColors()">
+                            </div>
+                            <div class="color-picker-item">
+                                <label class="form-label">Accent</label>
+                                <input type="color" class="color-picker" id="accentColor" value="#0066cc" onchange="updateCustomColors()">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="design-section">
+                        <h3>Typography</h3>
+                        <label class="form-label">Heading Font</label>
+                        <select class="font-select" id="headingFont" onchange="updateFonts()">
+                            <option value="Poppins">Poppins</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Inter">Inter</option>
+                            <option value="Playfair Display">Playfair Display</option>
+                            <option value="Roboto">Roboto</option>
+                            <option value="Open Sans">Open Sans</option>
+                        </select>
+
+                        <label class="form-label" style="margin-top: var(--space-16);">Body Font</label>
+                        <select class="font-select" id="bodyFont" onchange="updateFonts()">
+                            <option value="Poppins">Poppins</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Inter" selected>Inter</option>
+                            <option value="Playfair Display">Playfair Display</option>
+                            <option value="Roboto">Roboto</option>
+                            <option value="Open Sans">Open Sans</option>
+                        </select>
+
+                        <label class="form-label" style="margin-top: var(--space-16);">Heading Size</label>
+                        <div class="size-controls">
+                            <button class="size-btn" onclick="setHeadingSize('small')">Small</button>
+                            <button class="size-btn active" onclick="setHeadingSize('medium')">Medium</button>
+                            <button class="size-btn" onclick="setHeadingSize('large')">Large</button>
+                        </div>
+
+                        <label class="form-label" style="margin-top: var(--space-16);">Body Size</label>
+                        <div class="size-controls">
+                            <button class="size-btn" onclick="setBodySize('small')">Small</button>
+                            <button class="size-btn active" onclick="setBodySize('medium')">Medium</button>
+                            <button class="size-btn" onclick="setBodySize('large')">Large</button>
+                        </div>
+                    </div>
+
+                    <div class="design-section" style="margin-top: var(--space-24);">
+                        <h3>Layout &amp; Effects</h3>
+                        <label class="form-label">Container Width</label>
+                        <div class="size-controls">
+                            <button class="size-btn" onclick="setContainerWidth('narrow')">Narrow</button>
+                            <button class="size-btn active" onclick="setContainerWidth('standard')">Standard</button>
+                            <button class="size-btn" onclick="setContainerWidth('wide')">Wide</button>
+                        </div>
+
+                        <label class="form-label" style="margin-top: var(--space-16);">Animation Speed</label>
+                        <div class="size-controls">
+                            <button class="size-btn" onclick="setAnimationSpeed('slow')">Slow</button>
+                            <button class="size-btn active" onclick="setAnimationSpeed('medium')">Medium</button>
+                            <button class="size-btn" onclick="setAnimationSpeed('fast')">Fast</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preview Tab -->
+        <div class="tab-content" id="previewTab">
+            <div class="preview-container">
+                <div class="preview-toolbar">
+                    <div class="device-selector">
+                        <button class="device-btn" onclick="setPreviewDevice('mobile')">📱 Mobile</button>
+                        <button class="device-btn" onclick="setPreviewDevice('tablet')">📱 Tablet</button>
+                        <button class="device-btn active" onclick="setPreviewDevice('desktop')">💻 Desktop</button>
+                    </div>
+                    <div style="display: flex; gap: var(--space-8);">
+                        <button class="device-btn" onclick="setZoom(75)">75%</button>
+                        <button class="device-btn active" onclick="setZoom(100)">100%</button>
+                        <button class="device-btn" onclick="setZoom(125)">125%</button>
+                    </div>
+                </div>
+                <div class="preview-frame desktop" id="previewFrame"></div>
+            </div>
+        </div>
+
+        <!-- Export Tab -->
+        <div class="tab-content" id="exportTab">
+            <div class="export-options">
+                <h2 style="margin-bottom: var(--space-32);">Export Your Portfolio</h2>
+                
+                <div class="export-format-grid">
+                    <div class="export-card" onclick="selectExportFormat('html')">
+                        <div class="export-icon">📄</div>
+                        <h3>HTML</h3>
+                        <p>Single HTML file with inline CSS</p>
+                    </div>
+                    <div class="export-card" onclick="selectExportFormat('pdf')">
+                        <div class="export-icon">📋</div>
+                        <h3>PDF</h3>
+                        <p>Professional PDF document</p>
+                    </div>
+                    <div class="export-card" onclick="selectExportFormat('zip')">
+                        <div class="export-icon">📦</div>
+                        <h3>ZIP Package</h3>
+                        <p>Complete website with assets</p>
+                    </div>
+                </div>
+
+                <div class="export-settings">
+                    <h3 style="margin-bottom: var(--space-16);">Export Settings</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="includeAnalytics">
+                        <label>Include analytics code</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="embedFonts" checked>
+                        <label>Embed fonts (recommended)</label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="minifyCode">
+                        <label>Minify code for faster loading</label>
+                    </div>
+                </div>
+
+                <div class="export-action">
+                    <button class="btn-export" onclick="exportPortfolio()">Download Portfolio</button>
+                    <p style="margin-top: var(--space-16); color: var(--color-text-secondary);">Your portfolio will be downloaded as a ready-to-use file</p>
+                </div>
+
+                <div class="design-section" style="margin-top: var(--space-32);">
+                    <h3>Next Steps</h3>
+                    <ul style="color: var(--color-text-secondary); line-height: 2; margin-left: var(--space-20);">
+                        <li>Upload your portfolio to a web hosting service</li>
+                        <li>Register a custom domain name</li>
+                        <li>Share your portfolio on social media</li>
+                        <li>Add your portfolio link to your resume</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
